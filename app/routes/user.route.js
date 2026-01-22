@@ -1,7 +1,7 @@
 module.exports = app => {
-  const user = require ( "../controllers/user.Controller" );
+  const User= require ( "../controllers/user.Controller" );
   
-  app.post( "/user", user.create );
-  app.post( "/user/login", user.login );
+  app.post( "/users", User.create );
+  app.post( "/users/login", User.login );
 }
 

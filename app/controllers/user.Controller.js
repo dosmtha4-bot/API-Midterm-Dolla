@@ -8,7 +8,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  const newUser = new User({
+  const newUser= new User({
     email: req.body.email,
     password: req.body.password
   });
@@ -28,13 +28,13 @@ exports.login = (req, res) => {
     return;
   }
 
-  User.loginByEmailAndPassword(req.body.email, req.body.password, (error, user) => {
+  User.loginByEmailAndPassword(req.body.email, req.body.password, (error,User) => {
 
     if(hasError(res, error))
       return;
 
-    const accessToken = generateAccessToken(user.id);
-    const refreshToken = generateRefreshToken(accessToken, user.id);
+    const accessToken = generateAccessToken(User.id);
+    const refreshToken = generateRefreshToken(accessToken, User.id);
     res.json({accessToken, refreshToken});
 
   });
